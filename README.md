@@ -9,6 +9,8 @@ Template with functional and examples for create Dashboard on React
 - Typings, Linting, Beautify - Typescript, TSLint, Prettier
 - Bundling, transpiled and minifying next JS and CSS to old browsers - Webpack, Babel
 - State Management without pain) - Redux + Redux-Handler
+- Ready to use UI Components - Ant-Design
+- Light and Dark theme
 - CSSModules + PostCSS (https://preset-env.cssdb.org/features):
   - Custom Properties
   - Nesting
