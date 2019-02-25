@@ -1,0 +1,4 @@
+@define-mixin item {
+  border-radius: var(--primary-bdrs);
+  box-shadow: var(--primary-bdsh);
+}

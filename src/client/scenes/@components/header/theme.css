@@ -1,0 +1,60 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: var(--header-index);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6rem;
+  background: var(--primary-bg);
+  box-shadow: var(--header-bsh);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 6rem;
+  font-size: 1.6rem;
+  color: var(--primary-icons-color);
+  transition: all 0.3s;
+
+  &:hover {
+    background: var(--primary-bg-hover);
+  }
+}
+
+.switch {
+  background: var(--switch-bg);
+
+  &::after {
+    box-shadow: var(--switch-bsh);
+  }
+
+  &[aria-checked='false']::after {
+    background: var(--switch-btn-bg);
+  }
+}
+
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.sun {
+    background-image: url(./images/sun.png);
+  }
+
+  &.moon {
+    background-image: url(./images/moon.png);
+  }
+}

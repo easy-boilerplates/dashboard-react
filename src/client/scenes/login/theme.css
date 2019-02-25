@@ -1,0 +1,32 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--secondary-bg);
+}
+
+.form {
+  width: 100%;
+  max-width: 32.5rem;
+  padding: 4rem;
+  background: var(--primary-bg);
+
+  @mixin item;
+}
+
+.title {
+  font-size: 3.2rem;
+  line-height: 1.4;
+  font-weight: normal;
+  text-align: center;
+  color: var(--primary-heading-color);
+}
+
+.btn {
+  @mixin margin-reset;
+}
+
+.icon {
+  color: var(--primary-icons-color);
+}

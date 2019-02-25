@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "ricard.PostCSS",
+    "esbenp.prettier-vscode",
+    "shinnn.stylelint"
+  ]
+}

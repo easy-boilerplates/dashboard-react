@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "keyofStringsOnly": true,
+    "strict": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "lib": ["dom", "esnext"],
+    "skipLibCheck": true,
+    "plugins": [{
+      "name": "typescript-tslint-plugin",
+      "alwaysShowRuleFailuresAsWarnings": false,
+      "ignoreDefinitionFiles": true,
+      "configFile": "./tslint.json",
+      "suppressWhileTypeErrorsPresent": false,
+      "mockTypeScriptVersion": false
+    }]
+  },
+  "include": ["**/*"]
+}

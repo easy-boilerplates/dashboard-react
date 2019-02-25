@@ -1,0 +1,26 @@
+{
+  "login.form.title": {
+    "ru": "React Dashboard",
+    "en": "React Dashboard"
+  },
+  "login.form.field.username": {
+    "ru": "Логин",
+    "en": "Login"
+  },
+  "login.form.field.username!required": {
+    "ru": "Пожалуйста введите логин",
+    "en": "Please input your login"
+  },
+  "login.form.field.password": {
+    "ru": "Пароль",
+    "en": "Password"
+  },
+  "login.form.field.password!required": {
+    "ru": "Пожалуйста введите пароль",
+    "en": "Please input your password"
+  },
+  "login.form.btn.submit": {
+    "ru": "Войти",
+    "en": "Log In"
+  }
+}

@@ -1,0 +1,25 @@
+.error {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.smile {
+  color: #888;
+  font-size: 20rem;
+}
+
+.text {
+  margin: 3rem 0 0 1rem;
+  color: #333;
+  font-size: 3rem;
+}
