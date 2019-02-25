@@ -1,6 +1,7 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin'
 import * as CopyWebpackPlugin from 'copy-webpack-plugin'
+import * as HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as crypto from 'crypto'
 import * as HappyPack from 'happypack'
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -12,9 +13,10 @@ import * as WebpackBar from 'webpackbar'
 import { babelLoader, baseConfig } from './base.config'
 import { cssUse } from './css'
 import { ResourcesPlugin } from './resource-plugin'
-import { isDev, isHot, rootDir } from './tools'
+import { isDev, isHot, rootDir, staticPath, isServe } from './tools'
 
 const isBsync = isDev && process.env.BSYNC === '1'
+const buildHash = crypto.randomBytes(10).toString('hex')
 
 const externalConfig: webpack.Configuration & { devServer: any } = {
   ...baseConfig,
@@ -90,7 +92,7 @@ const externalConfig: webpack.Configuration & { devServer: any } = {
     }),
 
     new webpack.DefinePlugin({
-      BUILD_HASH: JSON.stringify(crypto.randomBytes(10).toString('hex'))
+      BUILD_HASH: JSON.stringify(buildHash)
     }),
 
     new ResourcesPlugin({
@@ -98,6 +100,20 @@ const externalConfig: webpack.Configuration & { devServer: any } = {
       to: 'locales',
       extension: 'json'
     }),
+
+    ...(isServe
+      ? [
+          new HtmlWebpackPlugin({
+            template: path.join(rootDir, './views/serve.html'),
+            filename: 'index.html',
+            inject: true || 'head' || 'body' || false,
+            hash: true,
+            templateParameters: {
+              buildHash
+            }
+          })
+        ]
+      : []),
 
     ...(isHot
       ? []
@@ -182,10 +198,7 @@ const externalConfig: webpack.Configuration & { devServer: any } = {
   devServer: {
     hot: true,
     inline: true,
-    contentBase: [
-      path.join(rootDir, './dist/static'),
-      path.join(rootDir, './views')
-    ],
+    contentBase: [staticPath, path.join(rootDir, './views')],
     port: 5003,
     historyApiFallback: {
       index: 'debug.html'

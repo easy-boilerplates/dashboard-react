@@ -53,7 +53,6 @@ class LoginSceneComponent extends React.PureComponent<ComponetProps> {
     const { form, dispatch } = this.props
     form.validateFields((err, values: LoginFormProps) => {
       if (!err) {
-        console.log('Received values of form: ', values)
         if (values.username === 'demo' && values.password === 'demo')
           dispatch(setAuth(true))
       }

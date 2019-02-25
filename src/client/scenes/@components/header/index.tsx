@@ -2,27 +2,22 @@ import { Icon, Switch } from 'antd'
 import cn from 'classnames'
 import { connect, DispatchProps } from 'client/redux/connect'
 import { setAuth } from 'client/redux/modules/system'
-import { Theme } from 'client/scenes'
+import { Theme, ThemeContext, ThemeProps } from 'client/scenes/theme'
 import React from 'react'
 import theme from './theme.css'
 
-interface OwnProps {
-  collapsed: boolean
-  toggleCollapsed: () => void
-  theme: Theme
-  toggleTheme: () => void
-}
-
-type ComponentProps = OwnProps & DispatchProps
+type ComponentProps = DispatchProps
 
 class HeaderComponent extends React.PureComponent<ComponentProps> {
+  static contextType = ThemeContext
+  readonly context!: ThemeProps
   render() {
     const {
       theme: basicTheme,
       collapsed,
       toggleCollapsed,
       toggleTheme
-    } = this.props
+    } = this.context
     return (
       <header className={theme.header}>
         <Icon

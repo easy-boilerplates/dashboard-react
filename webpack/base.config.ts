@@ -1,17 +1,16 @@
-import * as path from 'path'
 import * as webpack from 'webpack'
-import { isDev, rootDir } from './tools'
+import { isDev, staticPath } from './tools'
 
 export const baseConfig: webpack.Configuration = {
   output: {
-    path: path.join(rootDir, './dist/static'),
+    path: staticPath,
     filename: '[name].js',
     publicPath: '/',
     pathinfo: isDev ? false : true
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.css'],
+    extensions: ['.tsx', '.ts', '.js', '.css', '.html'],
     modules: ['src', 'node_modules']
   }
 }

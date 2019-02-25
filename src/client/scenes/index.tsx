@@ -3,12 +3,8 @@ import { Header } from 'client/scenes/@components/header'
 import { Page } from 'client/scenes/@components/page'
 import { Sidebar } from 'client/scenes/@components/sidebar'
 import { LoginScene } from 'client/scenes/login'
+import { Theme, ThemeContext } from 'client/scenes/theme'
 import React from 'react'
-
-export enum Theme {
-  Light = 'theme--light',
-  Dark = 'theme--dark'
-}
 
 interface StateProps {
   auth?: boolean
@@ -42,16 +38,18 @@ class ScenesComponent extends React.PureComponent<ComponentProps, State> {
   private renderMain = () => {
     const { theme, collapsed } = this.state
     return (
-      <>
-        <Header
-          theme={theme}
-          collapsed={collapsed}
-          toggleCollapsed={this.toggleCollapsed}
-          toggleTheme={this.toggleTheme}
-        />
-        <Sidebar collapsed={collapsed} />
+      <ThemeContext.Provider
+        value={{
+          theme,
+          collapsed,
+          toggleCollapsed: this.toggleCollapsed,
+          toggleTheme: this.toggleTheme
+        }}
+      >
+        <Header />
+        <Sidebar />
         <Page>1</Page>
-      </>
+      </ThemeContext.Provider>
     )
   }
 

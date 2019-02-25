@@ -9,7 +9,9 @@ declare namespace NodeJS {
 }
 
 interface Window {
-  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (args: any) => (...fn: Function[]) => any
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: (
+    args: any
+  ) => (...fn: Function[]) => any
 
   env: {
     api: {
